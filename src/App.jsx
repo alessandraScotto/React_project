@@ -1,7 +1,9 @@
+import { RouterProvider } from "react-router-dom";
 import "./App.css";
+import { router } from "./router";
 
 function App() {
-  return <div className=" bg-red-500 text-center uppercase">DIOBON</div>;
+  return <RouterProvider router={router} />;
 }
 
 export default App;

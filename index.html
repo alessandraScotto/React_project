@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,6 +9,16 @@
   <body>
     <div id="root"></div>
 
+    <!--My script-->
+    <script>
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+
+    <!--Script Flowbite-->
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 
     <script type="module" src="/src/main.jsx"></script>
