@@ -6,10 +6,10 @@
 
 
 html {
-    --primary: #F1D5DE;
-    --secondary: #D6C5E1;
-    --acc: #B1DCC8;
-    --acctwo: #DFF4FD;
+    --primary: #f1d5de;
+    --secondary: rgb(214, 197, 225);
+    --acc: rgb(177, 220, 200);
+    --acctwo: rgb(223, 244, 253);
 }
 
 :root {
@@ -18,4 +18,21 @@ html {
 
 .font-main {
     font-family: 'Syne', sans-serif;
+}
+
+#spanLine{
+    left: 158px;
+}
+
+#spanLineTwo{
+    left: 300px;
+    top: 78px;
+}
+
+@layer utilities {
+
+   
+    
+
+ 
 }
