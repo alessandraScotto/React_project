@@ -6,11 +6,15 @@ import { Link } from "react-router-dom";
 
 export default function Cards() {
   const [data, setData] = useState();
-  const [sortedGenres, setSortedGenres] = useState([]);
+  const [, setSortedGenres] = useState([]);
 
   useEffect(() => {
     fetch(
-      `https://api.rawg.io/api/genres?key=9dab235700f447f481d7946246e3c151&page_size=21&dates=2023-01-01,2023-03-15&platforms=18,1,7`,
+      `${import.meta.env.VITE_API_URL}/genres?key=${
+        import.meta.env.VITE_API_KEY
+      }&page_size=${import.meta.env.VITE_API_SIZE}&dates=${
+        import.meta.env.VITE_API_DATE
+      }&platforms=18,1,7`,
     )
       .then((r) => r.json())
       .then((r) => {
@@ -33,7 +37,7 @@ export default function Cards() {
         className="absolute h-32 w-2 rounded-tr-lg border-r-2 border-t-2 text-white"
       ></span>
       <div className="flex w-1/2 items-center justify-center">
-        <h3 className=" text-center text-3xl text-white">
+        <h3 id="arrow" className=" text-center text-3xl text-white">
           Discover a Wide Range of Categories
         </h3>
       </div>
@@ -44,7 +48,7 @@ export default function Cards() {
       >
         {data &&
           data.results.map((el) => (
-            <Link key={el.id} className="relative">
+            <Link key={el.id} to={`/genere/${el.id}`} className="relative">
               <h3 className="font-main absolute inset-0 flex items-center justify-center text-center text-2xl font-bold uppercase tracking-tight text-white">
                 <p className="z-10 text-white">{el.name}</p>
               </h3>
