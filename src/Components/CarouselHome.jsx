@@ -4,7 +4,7 @@ import { Carousel } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Cards() {
+export default function CarouselHome() {
   const [data, setData] = useState();
   const [, setSortedGenres] = useState([]);
 
@@ -25,7 +25,7 @@ export default function Cards() {
   }, []);
 
   return (
-    <main className="relative flex w-full justify-between border-b-2">
+    <main className="relative flex w-full justify-between">
       <span
         id="spanLine"
         className="absolute h-20 w-36  rounded-bl-lg border-b-2 border-l-2 pl-1 uppercase text-white"
@@ -34,7 +34,7 @@ export default function Cards() {
       </span>
       <span
         id="spanLineTwo"
-        className="absolute h-32 w-2 rounded-tr-lg border-r-2 border-t-2 text-white"
+        className="absolute h-32 w-3 rounded-tr-lg border-r-2 border-t-2 text-white"
       ></span>
       <div className="flex w-1/2 items-center justify-center">
         <h3 id="arrow" className=" text-center text-3xl text-white">

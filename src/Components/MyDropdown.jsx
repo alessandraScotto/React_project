@@ -5,21 +5,17 @@ import { useEffect, useState } from "react";
 
 export default function MyDropdown() {
   const [data, setData] = useState();
-  const [, setSortedGenres] = useState([]);
 
   useEffect(() => {
     fetch(
       `${import.meta.env.VITE_API_URL}/genres?key=${
         import.meta.env.VITE_API_KEY
-      }&page_size=${import.meta.env.VITE_API_SIZE}&dates=${
-        import.meta.env.VITE_API_DATE
-      }&platforms=18,1,7`,
+      }&page_size=${import.meta.env.VITE_API_SIZE}`,
     )
       .then((r) => r.json())
       .then((r) => {
         r.results.sort((a, b) => a.name.localeCompare(b.name));
         setData(r.results);
-        setSortedGenres(r.results);
       });
   }, []);
 
@@ -31,16 +27,13 @@ export default function MyDropdown() {
       label="Categories"
     >
       {data &&
-        data.map((el) => (
-          <Dropdown.Item
-            className="main-font bg-[#1e1b4b] font-semibold  dark:font-normal"
-            as="Link"
-            href={`/genere/${el.id}`}
-            key={el.id}
-          >
-            {el.name}
+        data.map((gen) => (
+          <Dropdown.Item key={gen.id} as="Link" href={`/genere/${gen.id}`}>
+            {gen.name}
           </Dropdown.Item>
         ))}
     </Dropdown>
   );
 }
+
+// .sort((a, b) => a.name.localeCompare(b.name))

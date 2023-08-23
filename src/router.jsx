@@ -4,6 +4,7 @@ import Home from "./Views/Home";
 import About from "./Views/About";
 import Error from "./Views/Error";
 import Genre from "./Views/Genre";
+import Details from "./Views/Details";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: "/genere/:id",
         element: <Genre />,
+      },
+      {
+        path: "/details/:id",
+        element: <Details />,
       },
     ],
   },

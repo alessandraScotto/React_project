@@ -1,7 +1,24 @@
-import Cards from "../Components/Cards";
 import { motion } from "framer-motion";
+import CarouselHome from "../Components/CarouselHome";
+// import { supabase } from "../Supabase/Client";
 
 export default function Home() {
+  // const register = async () => {
+  //   const fakeData = {
+  //     email: Math.random() + "bla@bla.com",
+  //     password: "1234567",
+  //     confirm_password: "1234567",
+  //     options: {
+  //       data: {
+  //         username: "Pippo",
+  //         first_name: "Pi",
+  //         last_name: "Poo",
+  //       },
+  //     },
+  //   };
+  //   const { data, error } = await supabase.auth.signUp(fakeData);
+  //   console.log(data, error);
+  // };
   return (
     <>
       <div className="0	flex h-screen w-full items-center justify-center">
@@ -14,9 +31,12 @@ export default function Home() {
           >
             ReHack: Your Gateway to Gaming Adventures
           </motion.h1>
+          {/* <button className="bg-red-500" onClick={register}>
+            Register now
+          </button> */}
         </div>
       </div>
-      <Cards />
+      <CarouselHome />
     </>
   );
 }

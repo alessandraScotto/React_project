@@ -8,7 +8,7 @@ export default function Navbar() {
   const lightLogo = "../src/assets/logo.png";
   const darkLogo = "../src/assets/logowhite.png";
   return (
-    <nav className="fixed z-10 flex w-full justify-between border-b-2 border-b-[#8358e6] bg-slate-200 py-1 text-indigo-950 dark:border-b-white dark:bg-indigo-950 dark:text-white">
+    <nav className="fixed z-10 flex w-full justify-between border-b-2 border-b-[#8358e6] bg-slate-200 py-1 text-indigo-950 opacity-90 dark:border-b-white dark:bg-indigo-950 dark:text-white">
       <Link className="px-2 pt-1" to="/">
         <img
           className="hidden dark:block"

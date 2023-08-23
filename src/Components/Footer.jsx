@@ -5,14 +5,25 @@ import { ReactComponent as Insta } from "../assets/Icons/Insta.svg";
 
 export default function Footer() {
   return (
-    <footer className="flex justify-around border-t-2 border-t-white  bg-[#171415e6]  text-white opacity-100">
+    <footer className="flex justify-around border-t-2 border-t-[#8358e6] bg-slate-200  py-1 text-indigo-950 opacity-90 dark:border-t-white dark:bg-indigo-950 dark:text-white">
       <div className="flex flex-col py-3  pl-3">
         <Twitter />
         <Insta className="my-4 text-violet-300 " />
         <Linkedin className="bg-gradient-to-r from-violet-500 to-violet-900" />
       </div>
       <div className="flex items-center justify-center">
-        <img src="../src/assets/logo.png" width="80px" alt="" />
+        <img
+          className="hidden dark:block"
+          src="../src/assets/logo.png"
+          width="80px"
+          alt="Logo"
+        />
+        <img
+          className="block dark:hidden"
+          src="../src/assets/logowhite.png"
+          width="80px"
+          alt="Logo"
+        />
       </div>
       <div className="flex flex-col py-3  pl-3">
         <Link to="/">Home</Link>
