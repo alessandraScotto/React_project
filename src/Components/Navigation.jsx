@@ -13,6 +13,7 @@ import LanguageSwitcher from "./Switchers/LanguageSwitcher";
 import getProfileImage from "../Utilities/getProfileImage";
 
 export default function Navigation() {
+  // eslint-disable-next-line no-unused-vars
   const { t, i18n } = useTranslation();
   const commonLinkStyles =
     "mx-1 bg-gradient-to-r font-main from-violet-500 to-black bg-clip-text pt-1 dark:main-font  text-transparent  dark:text-white";
