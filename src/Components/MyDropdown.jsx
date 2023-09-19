@@ -2,9 +2,11 @@
 
 import { Dropdown } from "flowbite-react";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function MyDropdown() {
   const [data, setData] = useState();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     fetch(
@@ -21,14 +23,19 @@ export default function MyDropdown() {
 
   return (
     <Dropdown
-      className="max-h-80 overflow-y-auto pt-1 font-semibold scrollbar-none dark:font-normal"
+      className=" max-h-80 overflow-y-auto scrollbar-none"
       color="#6b00b2"
       size="base"
-      label="Categories"
+      label={t("api.categories")}
     >
       {data &&
         data.map((gen) => (
-          <Dropdown.Item key={gen.id} as="Link" href={`/genere/${gen.id}`}>
+          <Dropdown.Item
+            className="text-xl dark:bg-[#843fb35b] md:text-base"
+            key={gen.id}
+            as="Link"
+            href={`/genere/${gen.id}`}
+          >
             {gen.name}
           </Dropdown.Item>
         ))}

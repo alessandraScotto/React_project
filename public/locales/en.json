@@ -1,0 +1,44 @@
+{
+    "home": {
+        "title": "ReHack: Your Gateway to Gaming Adventures",
+        "categoriesTitile": "Discover a Wide Range of Categories"
+    },
+    "common": {
+        "login": "Login",
+        "register": "Register",
+        "logout":"Logout",
+        "aboutUs": "About us",
+        "contactUs": "Contact us",
+        "games": "Games"
+    },
+    "api": {
+        "categories": "Categories",
+        "games": "Games",
+        "genres":"Genres",
+        "stores": "Stores",
+        "gamers": "Gamers"
+    },
+    "categories": {
+        "action": "Action",
+        "adventures": "Adventures",
+        "arcade": "Arcade",
+        "boardGames": "Board Games",
+        "card": "Card",
+        "casual": "Casual",
+        "educational": "Educational",
+        "family": "Family",
+        "fighting": "Fighting",
+        "indie": "Indie",
+        "massiveMultiplayer": "Massive Multiplayer",
+        "platformer": "Platformer",
+        "puzzle": "Puzzle",
+        "racing": "Racing",
+        "RPG": "RPG",
+        "shooter": "Shooter",
+        "simulation": "Simulation",
+        "sports": "Sports",
+        "strategy": "Strategy"
+    }
+
+
+}

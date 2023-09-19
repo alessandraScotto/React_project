@@ -27,8 +27,8 @@ export default function Navbar() {
         <Link className={commonLinkStyles} to="/">
           Home
         </Link>
-        <Link className={commonLinkStyles} to="/">
-          Home
+        <Link className={commonLinkStyles} to="/login">
+          Login
         </Link>
         <MyDropdown />
       </div>

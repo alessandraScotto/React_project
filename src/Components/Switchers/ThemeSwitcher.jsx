@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ReactComponent as Sun } from "../assets/Icons/Sun.svg";
-import { ReactComponent as Moon } from "../assets/Icons/Moon.svg";
+import { ReactComponent as Sun } from "../../assets/Icons/Sun.svg";
+import { ReactComponent as Moon } from "../../assets/Icons/Moon.svg";
 
 export default function ThemeSwitcher() {
   const [isDark, setIsDark] = useState(

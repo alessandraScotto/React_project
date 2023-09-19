@@ -12,8 +12,9 @@ export default {
         primary: "var(--primary)",
         secondary: "var(--secondary)",
         acc: "var(--acc)"
-
-
+      },
+      backgroundImage: {
+        'bg-card': "url('')",
       }
     },
   },

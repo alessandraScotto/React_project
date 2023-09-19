@@ -20,14 +20,8 @@ html {
     font-family: 'Syne', sans-serif;
 }
 
-#spanLine{
-    left: 159px;
-}
 
-#spanLineTwo{
-    left: 300px;
-    top: 78px;
-}
+
 
 #arrow{
     position: relative;
@@ -38,7 +32,7 @@ html {
     position: absolute;
     content: "";
     background: linear-gradient(135deg,white 0%,rgba(155, 81, 224, 0.717) 100%);
-    width: 100%;
+    width: 80%;
     height: 2px;
     bottom: 0;
     animation: animate 3s linear;
@@ -46,6 +40,8 @@ html {
    
    
 }
+
+
 
 @keyframes animate {
 
@@ -60,6 +56,21 @@ html {
 }
 
 
+.btn-grad {
+    background-image: linear-gradient(to right, #4776E6 0%, #8E54E9  51%, #4776E6  100%);
+    transition: 0.5s;
+    background-size: 200% auto;
+    /* box-shadow: 0 0 5px #eee; */
+
+  }
+ 
+  .btn-grad:hover {
+    background-position: right center; 
+    
+  }
+ 
+  
+  
 
 
 
