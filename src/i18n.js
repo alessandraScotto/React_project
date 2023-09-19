@@ -6,7 +6,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 const env =
   import.meta.env.MODE === "development"
     ? "http://localhost:5173"
-    : "https://final-project-pi-five.vercel.app/";
+    : "";
 
 i18next
   .use(LanguageDetector)
