@@ -10,6 +10,7 @@ import useAuthStore from "../Store/authStore";
 import { supabase } from "../supabase/client";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./Switchers/LanguageSwitcher";
+import getProfileImage from "../Utilities/getProfileImage";
 
 export default function Navigation() {
   const { t, i18n } = useTranslation();
@@ -66,8 +67,13 @@ export default function Navigation() {
 
           {profile ? (
             <>
-              <Link to="/profile" className={commonLinkStyles}>
-                {profile.username}
+              <Link to="/profile" className="flex">
+                <img
+                  className="ml-2 h-8 w-8 rounded-full border border-cyan-600 object-fill"
+                  src={getProfileImage(profile.avatar_url)}
+                />
+
+                <span className={commonLinkStyles}>{profile.username}</span>
               </Link>
               <button className={commonLinkStyles} onClick={logOut}>
                 {t("common.logout")}

@@ -22,13 +22,13 @@ export default function GameDetails() {
         .from("favorites")
         .delete()
         .eq("id", isFavorite().id);
-      // console.log(data, error);
+      console.log(data, error);
     } else {
       const { data, error } = await supabase
         .from("favorites")
         .insert({ user_id: profile.id, game_id: game.id, game_name: game.name })
         .select();
-      // console.log(data, error);
+      console.log(data, error);
       // setta fra i favoriti
     }
 
