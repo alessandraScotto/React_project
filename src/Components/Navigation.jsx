@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 import MyDropdown from "./MyDropdown";
 import ThemeSwitcher from "./Switchers/ThemeSwitcher";
-import { ReactComponent as Bars } from "../assets/icons/Bars.svg";
-import { ReactComponent as User } from "../assets/icons/User.svg";
+import { ReactComponent as Bars } from "../assets/Icons/Bars.svg";
+import { ReactComponent as User } from "../assets/Icons/User.svg";
 
 import useAuthStore from "../Store/authStore";
 import { supabase } from "../Supabase/Client";
