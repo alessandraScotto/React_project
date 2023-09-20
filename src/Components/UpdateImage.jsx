@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../supabase/client";
+import { supabase } from "../Supabase/Client";
 import getProfileImage from "../Utilities/getProfileImage";
 import useAuthStore from "../Store/authStore";
 
@@ -60,6 +60,7 @@ export default function UpdateImage() {
         updated_at: new Date(),
       };
 
+      // eslint-disable-next-line no-unused-vars
       let { data, error } = await supabase
         .from("profiles")
         .upsert(updates)
@@ -78,13 +79,19 @@ export default function UpdateImage() {
 
   return (
     <div>
-      <div>
-        {profile && (
-          <img src={getProfileImage(profile.avatar_url)} alt="img profile" />
-        )}
-      </div>
+      {profile && (
+        <div className="w-100 flex justify-center">
+          <img
+            className="h-56 w-4/5	rounded-3xl object-cover shadow-[0px_0px_24px_0px_#fff5f5]"
+            src={getProfileImage(profile.avatar_url)}
+            alt="img profile"
+          />
+        </div>
+      )}
 
-      <div>{preview && <img src={preview} />}</div>
+      <div>
+        {preview && <img className="h-56 w-4/5 object-cover" src={preview} />}
+      </div>
 
       <form onSubmit={submit}>
         {uploading ? "Uploadind" : "Upload"}

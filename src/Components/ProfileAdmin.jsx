@@ -2,7 +2,7 @@ import { useState } from "react";
 import Favorites from "./Admin/Favorites";
 import Profiles from "./Admin/Profiles";
 import { useEffect } from "react";
-import { supabase } from "../supabase/client";
+import { supabase } from "../Supabase/Client";
 
 export default function ProfileAdmin() {
   const [data, setData] = useState(null);

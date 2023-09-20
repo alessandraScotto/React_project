@@ -6,3 +6,4 @@ export default function getProfileImage(url) {
     import.meta.env.VITE_SUPABASE_PROJECT_URL
   }/storage/v1/object/public/avatars/${url}`;
 }
+

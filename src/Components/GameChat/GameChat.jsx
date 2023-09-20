@@ -1,6 +1,6 @@
 import useAuthStore from "../../Store/authStore";
 import { useEffect, useState } from "react";
-import { supabase } from "../../supabase/client";
+import { supabase } from "../../Supabase/Client";
 import Button from "../Button";
 import Message from "./Message";
 

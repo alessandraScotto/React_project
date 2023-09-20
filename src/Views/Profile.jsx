@@ -14,7 +14,9 @@ export default function Profile() {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <h1 className=" text-3xl">Benvenuto nel tuo profilo</h1>
+      <h1 className=" font-main text-3xl text-white">
+        Benvenuto nel tuo profilo
+      </h1>
       {isAdmin ? <ProfileAdmin /> : <ProfileUser />}
     </motion.div>
   );

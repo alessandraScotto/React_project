@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export default function CarouselHome({ data }) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <main className="relative w-full pb-12">
       <span

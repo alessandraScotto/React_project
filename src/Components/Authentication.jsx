@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import useAuthStore from "../Store/authStore";
-import { supabase } from "../supabase/client";
+import { supabase } from "../Supabase/Client";
 import { useEffect } from "react";
 
 export default function Authentication({ children }) {
@@ -20,7 +20,7 @@ export default function Authentication({ children }) {
     const { data: listener } = supabase.auth.onAuthStateChange((_, session) => {
       if (session === null) {
         setLoggedOut();
-        navigate("/sign-in");
+        /* navigate("/"); */
       }
     });
 

@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 export default function MyDropdown() {
   const [data, setData] = useState();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetch(

@@ -3,7 +3,7 @@ import CountUp from "react-countup";
 import { useTranslation } from "react-i18next";
 
 export default function Counters({ games, genres, stores }) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <div className="grid grid-cols-4 text-white">
       <div className="text-center">

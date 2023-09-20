@@ -1,5 +1,5 @@
 import Input from "../Components/Input";
-import { supabase } from "../supabase/client";
+import { supabase } from "../Supabase/Client";
 import { Link, useNavigate } from "react-router-dom";
 import useAuthStore from "../Store/authStore";
 import { Formik, Field, Form } from "formik";

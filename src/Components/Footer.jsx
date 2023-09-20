@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 export default function Footer() {
   // eslint-disable-next-line no-unused-vars
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <footer className="flex justify-around border-t-2 border-t-[#8358e6] bg-slate-200  py-1 text-indigo-950 opacity-90 dark:border-t-white dark:bg-indigo-950 dark:text-white">
       <div className="flex flex-col py-3  pl-3">

@@ -1,6 +1,6 @@
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
-import { supabase } from "../supabase/client";
+import { supabase } from "../Supabase/Client";
 import useAuthStore from "../Store/authStore";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../Components/Input";

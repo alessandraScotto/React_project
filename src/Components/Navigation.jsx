@@ -7,14 +7,14 @@ import { ReactComponent as Bars } from "../assets/icons/bars.svg";
 import { ReactComponent as User } from "../assets/icons/user.svg";
 
 import useAuthStore from "../Store/authStore";
-import { supabase } from "../supabase/client";
+import { supabase } from "../Supabase/Client";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./Switchers/LanguageSwitcher";
 import getProfileImage from "../Utilities/getProfileImage";
 
 export default function Navigation() {
   // eslint-disable-next-line no-unused-vars
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const commonLinkStyles =
     "mx-1 bg-gradient-to-r font-main from-violet-500 to-black bg-clip-text pt-1 dark:main-font  text-transparent  dark:text-white";
   const [open, setOpen] = useState(false);

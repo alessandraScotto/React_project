@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { supabase } from "../../supabase/client";
+import { supabase } from "../../Supabase/Client";
 
 export default function BanUser({ user, getData, banned }) {
   const [date, setDate] = useState("");
