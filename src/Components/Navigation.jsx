@@ -18,8 +18,8 @@ export default function Navigation() {
   const commonLinkStyles =
     "mx-1 bg-gradient-to-r font-main from-violet-500 to-black bg-clip-text pt-1 dark:main-font  text-transparent  dark:text-white";
   const [open, setOpen] = useState(false);
-  const lightLogo = "../public/logo.png";
-  const darkLogo = "../public/logowhite.png";
+  const lightLogo = "/logo.png";
+  const darkLogo = "/logowhite.png";
 
   const setLoggedOut = useAuthStore((state) => state.setLoggedOut);
   const profile = useAuthStore((state) => state.profile);
