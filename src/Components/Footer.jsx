@@ -17,13 +17,13 @@ export default function Footer() {
       <div className="flex items-center justify-center">
         <img
           className="hidden dark:block"
-          src="../src/assets/logo.png"
+          src="/logo.png"
           width="80px"
           alt="Logo"
         />
         <img
           className="block dark:hidden"
-          src="../src/assets/logowhite.png"
+          src="/logowhite.png"
           width="80px"
           alt="Logo"
         />
