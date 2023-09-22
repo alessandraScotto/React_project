@@ -23,9 +23,9 @@ export default function MyDropdown() {
 
   return (
     <Dropdown
-      className=" max-h-80 overflow-y-auto scrollbar-none"
+      className=" font-main mt-1 max-h-80 overflow-y-auto scrollbar-none"
       color="#6b00b2"
-      size="base"
+      size="medium"
       label={t("api.categories")}
     >
       {data &&

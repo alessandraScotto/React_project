@@ -3,12 +3,16 @@ import Root from "./Views/Root";
 import Home, { loadAll } from "./Views/Home";
 import About from "./Views/About";
 import Error from "./Views/Error";
+
 import Genre from "./Views/Genre";
+
 import Details, { getGameDetails } from "./Views/Details";
 import Login from "./Views/Login";
 import SignIn from "./Views/SignIn";
 import Profile from "./Views/Profile";
 import ProtectedRoute from "./Components/ProtectedRoute";
+import Search, { getGenres } from "./Views/Search";
+import SearchPage from "./Views/SearchPage";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +49,16 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         element: <ProtectedRoute element={<Profile />} />,
+      },
+      {
+        path: "/search/:genre?/:num?",
+        element: <Search />,
+        loader: getGenres,
+      },
+      {
+        path: "/search-page",
+        element: <SearchPage />,
+        loader: loadAll,
       },
     ],
   },

@@ -59,6 +59,12 @@ export default function Navigation() {
           <div className="hidden text-black dark:text-white md:ml-3 md:inline">
             <MyDropdown />
           </div>
+          <Link
+            to="/search-page"
+            className="hidden text-black  dark:text-white md:inline"
+          >
+            Search page
+          </Link>
         </div>
 
         <div className="flex w-1/2 items-center justify-end text-white md:w-2/3">
@@ -68,7 +74,7 @@ export default function Navigation() {
 
           {profile ? (
             <>
-              <Link to="/profile" className="flex">
+              <Link to="/profile" className="hidden md:flex">
                 <img
                   className="ml-2 h-8 w-8 rounded-full border border-cyan-600 object-fill"
                   src={getProfileImage(profile.avatar_url)}
@@ -76,7 +82,10 @@ export default function Navigation() {
 
                 <span className={commonLinkStyles}>{profile.username}</span>
               </Link>
-              <button className={commonLinkStyles} onClick={logOut}>
+              <button
+                className="font-main  pr-2 text-black dark:text-white"
+                onClick={logOut}
+              >
                 {t("common.logout")}
               </button>
             </>
@@ -101,12 +110,29 @@ export default function Navigation() {
         }
       >
         <div className="flex flex-col text-3xl">
+          {profile ? (
+            <Link to="/profile" className="mb-10 flex">
+              <img
+                className="ml-2 h-20 w-20 rounded-full border border-cyan-600 object-fill"
+                src={getProfileImage(profile.avatar_url)}
+              />
+
+              <span className="font-main bg-gradient-to-r from-violet-500 to-black bg-clip-text pl-2 pt-10 font-semibold  uppercase text-transparent  dark:to-white">
+                {profile.username}
+              </span>
+            </Link>
+          ) : (
+            ""
+          )}
           <Link to="/" className="font-main ">
             Home
           </Link>
           <div className="font-main py-10">
             <MyDropdown />
           </div>
+          <Link to="/search-page" className="font-main pb-10">
+            Search page
+          </Link>
           <Link to="/" className="font-main pb-10">
             {t("common.aboutUs")}
           </Link>
