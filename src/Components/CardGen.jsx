@@ -3,31 +3,55 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { ReactComponent as Arrow } from "../assets/Icons/Arrow.svg";
 import { format } from "date-fns";
+import { useSearchParams } from "react-router-dom";
+import Button from "./Button";
 
 export default function CardGen({ genreId }) {
   const [gamesData, setGamesData] = useState();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const page_size = 5;
 
   useEffect(() => {
+    const qs = [...searchParams].map((el) => `&${el[0]}=${el[1]}`).join("");
+
     fetch(
       `https://api.rawg.io/api/games?key=${
         import.meta.env.VITE_API_KEY
-      }&genres=${genreId}&page_size=${import.meta.env.VITE_API_SIZE}`,
+      }&genres=${genreId}&page_size=${page_size}&search_precise=true&ordering=-rating${qs}`,
     )
       .then((r) => r.json())
       .then((r) => {
         setGamesData(r.results);
       });
-  }, [genreId]);
+  }, [searchParams]);
+
+  const handlePage = (order) => {
+    console.log(order);
+    const allParams = Object.fromEntries([...searchParams]);
+
+    if (order === "next") {
+      setSearchParams({
+        ...allParams,
+        page: allParams.page ? +allParams.page + 1 : 2,
+      });
+    } else {
+      setSearchParams({
+        ...allParams,
+        page: allParams.page == 1 || !allParams.page ? 1 : +allParams.page - 1,
+      });
+    }
+  };
 
   return (
     <section>
-      <div className="container grid w-full grid-cols-1 justify-items-center gap-4 text-white">
+      <div className="container grid w-full grid-cols-1 justify-items-center gap-4  text-white">
         {gamesData &&
           gamesData.map((game) =>
             game.genres.map((genere) =>
               genere.id == parseInt(genreId) ? (
                 <div
-                  className="flex h-60 w-3/4 justify-between border-2 border-[#7851d1] "
+                  className="flex h-60 w-3/4 justify-between rounded-md border-2 border-[#7851d1] "
                   key={game.id}
                 >
                   <div className="grid w-3/5 bg-[#ffffffbe] text-black dark:bg-[#1d1a46a5] dark:text-white">
@@ -40,7 +64,7 @@ export default function CardGen({ genreId }) {
                       <span className="mr-1 font-semibold">Genres:</span>
                       {game.genres.map((genre) => (
                         <Link
-                          className="mr-2"
+                          className="mr-2 transition-[0.5] hover:font-bold"
                           to={`/genere/${genre.id}`}
                           key={genre.name}
                         >
@@ -69,7 +93,7 @@ export default function CardGen({ genreId }) {
                       }}
                       className="absolute inset-0 h-full w-full bg-cover bg-center opacity-80"
                     ></div>
-                    <div className="absolute inset-0 flex h-full w-full items-center justify-center opacity-0 hover:bg-black hover:opacity-80 hover:transition hover:duration-300 hover:ease-in-out">
+                    <div className="absolute inset-0 flex h-full w-full items-center justify-center opacity-0 transition-[0.5] hover:bg-black hover:opacity-80 hover:transition hover:duration-300">
                       <Link
                         to={`/details/${game.id}`}
                         className="flex opacity-100"
@@ -83,6 +107,21 @@ export default function CardGen({ genreId }) {
               ) : null,
             ),
           )}
+      </div>
+      <div className="mb-12 mt-24 flex w-full items-center justify-center">
+        <Button
+          type="button"
+          label="Prev page"
+          onClick={() => handlePage("prev")}
+        />
+
+        <span className="mx-4 text-white">{searchParams.get("page")}</span>
+
+        <Button
+          type="button"
+          label="Next page"
+          onClick={() => handlePage("next")}
+        />
       </div>
     </section>
   );

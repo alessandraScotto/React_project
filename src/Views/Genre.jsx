@@ -6,12 +6,11 @@ export default function Genre() {
   const [genreData, setGenreData] = useState();
 
   const { id } = useParams();
-
   useEffect(() => {
     fetch(
       `${import.meta.env.VITE_API_URL}/genres?key=${
         import.meta.env.VITE_API_KEY
-      }&dates=${import.meta.env.VITE_API_DATE}`,
+      }`,
     )
       .then((r) => r.json())
       .then((r) => setGenreData(r.results));
