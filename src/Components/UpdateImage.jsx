@@ -81,28 +81,46 @@ export default function UpdateImage() {
   return (
     <div>
       {profile && (
-        <div className="w-100 flex justify-center">
+        <div className="w-100 mt-5 flex justify-center">
           <img
-            className="h-56 w-4/5	rounded-3xl object-cover shadow-[0px_0px_24px_0px_#fff5f5]"
+            className="h-56 w-2/5	rounded-3xl object-cover shadow-[0px_0px_10px_0px_#fff5f5]"
             src={getProfileImage(profile.avatar_url)}
             alt="img profile"
           />
         </div>
       )}
 
-      <div>
-        {preview && <img className="h-56 w-4/5 object-cover" src={preview} />}
-      </div>
+      {preview && (
+        <div className="mt-5 flex justify-center">
+          <img className="h-56 w-2/5 rounded-3xl object-cover" src={preview} />
+        </div>
+      )}
 
-      <form onSubmit={submit}>
-        {uploading ? "Uploadind" : "Upload"}
-        <input
-          type="file"
-          accept="image/*"
-          disabled={uploading}
-          onChange={handleFile}
-        />
-        <Button type="submit" label="Upload Image" />
+      <form className="mt-3 flex justify-center" onSubmit={submit}>
+        <span className="font-main me-3 text-white">
+          {uploading ? "Uploading.." : ""}
+        </span>
+
+        {file ? (
+          <Button type="submit" label="Cambia immagine" />
+        ) : (
+          <>
+            <label
+              className="btn-grad font-main inline-flex cursor-pointer justify-center rounded-md px-3 py-1 text-center text-white "
+              htmlFor="button"
+            >
+              Scegli immagine
+            </label>
+            <input
+              type="file"
+              className="hidden"
+              id="button"
+              accept="image/*"
+              disabled={uploading}
+              onChange={handleFile}
+            />
+          </>
+        )}
       </form>
     </div>
   );

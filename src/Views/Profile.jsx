@@ -5,6 +5,7 @@ import useAuthStore from "../Store/authStore";
 
 export default function Profile() {
   const isAdmin = useAuthStore((state) => state.isAdmin);
+  const profile = useAuthStore((state) => state.profile);
 
   return (
     <motion.div
@@ -14,8 +15,8 @@ export default function Profile() {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <h1 className=" font-main text-3xl text-white">
-        Benvenuto nel tuo profilo
+      <h1 className=" font-main bg-gradient-to-r from-violet-500 to-white bg-clip-text pb-5 text-center text-3xl text-transparent">
+        Benvenuto nel tuo profilo {profile.username}
       </h1>
       {isAdmin ? <ProfileAdmin /> : <ProfileUser />}
     </motion.div>

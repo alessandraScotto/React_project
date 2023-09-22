@@ -46,19 +46,24 @@ export default function GameDetails() {
     >
       <div className="flex text-white">
         <div className="w-1/2">
-          <p className="font-main  bg-gradient-to-r  from-sky-600 to-sky-100 bg-clip-text pb-4 text-3xl font-extrabold text-transparent md:text-5xl ">
+          <p className="font-main  pb-4 text-3xl font-bold  md:text-5xl ">
             {game.name}
           </p>
 
           {profile && (
-            <div className="my-12">
+            <div className="my-12 flex justify-center rounded-md shadow-[0px_0px_32px_0px_#fff5f5]">
+              <span className="font-main mr-2">
+                {isFavorite()
+                  ? "Rimuovi dai preferiti"
+                  : "Aggiungi ai preferiti"}
+              </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill={isFavorite() ? "red" : "black"}
+                fill={isFavorite() ? "red" : "white"}
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
-                stroke={isFavorite() ? "red" : "black"}
-                className="h-6 w-6"
+                stroke={isFavorite() ? "red" : "white"}
+                className="h-6 w-6 "
                 onClick={toggleFavorite}
               >
                 <path

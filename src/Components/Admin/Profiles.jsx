@@ -43,7 +43,7 @@ export default function Profiles() {
   }, [page]);
 
   return (
-    <div>
+    <div className="pb-6">
       {data ? (
         <div className="relative overflow-x-auto ">
           <div className="shadow-md sm:rounded-lg">
@@ -60,7 +60,7 @@ export default function Profiles() {
               )}
             </div>
 
-            {page}
+            <span className="font-main text-white">{page}</span>
 
             <div className="mx-2">
               <Button

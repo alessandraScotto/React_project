@@ -85,8 +85,8 @@ export default function GameChat({ game }) {
             name=""
             id=""
             rows="4"
-            placeholder="Add Note"
-            className="w-full bg-slate-600 p-2"
+            placeholder="Comincia a chattare.."
+            className="font-main w-full border-white bg-slate-300 bg-opacity-90 p-2 font-semibold text-black dark:bg-indigo-950 dark:text-white"
             value={message}
             onChange={(e) => {
               setMessage(e.target.value);

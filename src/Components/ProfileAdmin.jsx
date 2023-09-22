@@ -27,15 +27,15 @@ export default function ProfileAdmin() {
   }, []);
 
   return (
-    <div className="mt-24 min-h-screen px-5 md:px-24">
+    <div className="min-h-screen px-5 md:px-24">
       <div>
-        <h1 className="mb-12 text-2xl">
+        <h1 className="font-main mb-12 text-2xl text-white">
           Questa è la lista dei giochi favoriti
         </h1>
         <div className="h-[500px] w-full">
           {data && <Favorites data={data} />}
         </div>
-        <h1 className="mb-12 text-2xl">
+        <h1 className="font-main mb-12 text-2xl text-white">
           Questa è la lista degli utenti registrati
         </h1>
         <Profiles />
