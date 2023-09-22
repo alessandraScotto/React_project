@@ -29,7 +29,7 @@ export default function SignIn() {
 
     try {
       const { data, error } = await supabase.auth.signUp(form);
-      console.log(data, error);
+      console.log("DATA", data, "EERORR", error);
       if (!error) {
         setMessage(() => data.user.email);
       }

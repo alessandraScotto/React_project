@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../Supabase/Client";
 import getProfileImage from "../Utilities/getProfileImage";
 import useAuthStore from "../Store/authStore";
+import { supabase } from "../Supabase/Client";
 
 export default function UpdateImage() {
   const profile = useAuthStore((state) => state.profile);
   const setProfile = useAuthStore((state) => state.setProfile);
+
   const [preview, setPreview] = useState();
   const [uploading, setUploading] = useState(false);
   const [file, setFile] = useState();
@@ -15,8 +16,10 @@ export default function UpdateImage() {
       setPreview(null);
       return;
     }
+
     const objectUrl = URL.createObjectURL(file);
     setPreview(objectUrl);
+
     return () => URL.revokeObjectURL(objectUrl);
   }, [file]);
 
@@ -25,8 +28,10 @@ export default function UpdateImage() {
       setFile(() => null);
       return;
     }
+
     setFile(() => e.target.files[0]);
   };
+
   const submit = async (e) => {
     e.preventDefault();
 
@@ -54,7 +59,7 @@ export default function UpdateImage() {
         avatar_url: filePath,
         updated_at: new Date(),
       };
-
+      console.log(updates);
       let { data, error } = await supabase
         .from("profiles")
         .upsert(updates)
@@ -70,44 +75,22 @@ export default function UpdateImage() {
       setPreview(() => null);
     }
   };
+
   return (
     <div>
-      <div>
-        {profile && (
-          <img
-            src={getProfileImage(profile.avatar_url)}
-            className="mb-5 md:w-1/6"
-          />
-        )}
-      </div>
-      <div>{preview && <img src={preview} className="mb-5 md:w-1/6" />}</div>
+      <div>{profile && <img src={getProfileImage(profile.avatar_url)} />}</div>
+
+      <div>{preview && <img src={preview} />}</div>
+
       <form onSubmit={submit}>
-        {uploading ? "Uploading  " : "Upload "}
-        {file ? (
-          <button
-            className=" rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
-            type="submit"
-          >
-            Cambia immagine
-          </button>
-        ) : (
-          <>
-            <label
-              htmlFor="button"
-              className=" cursor-pointer rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
-            >
-              Scegli immagine
-            </label>
-            <input
-              type="file"
-              className="hidden"
-              id="button"
-              accept="image/*"
-              disabled={uploading}
-              onChange={handleFile}
-            />
-          </>
-        )}
+        {uploading ? "Uploadind" : "Upload"}
+        <input
+          type="file"
+          accept="image/*"
+          disabled={uploading}
+          onChange={handleFile}
+        />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
