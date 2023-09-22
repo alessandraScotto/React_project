@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../Supabase/Client";
 import getProfileImage from "../Utilities/getProfileImage";
 import useAuthStore from "../Store/authStore";
-import Button from "./Button";
+import { supabase } from "../Supabase/Client";
 
 export default function UpdateImage() {
   const profile = useAuthStore((state) => state.profile);
@@ -60,7 +59,7 @@ export default function UpdateImage() {
         avatar_url: filePath,
         updated_at: new Date(),
       };
-
+      console.log(updates);
       // eslint-disable-next-line no-unused-vars
       let { data, error } = await supabase
         .from("profiles")
@@ -80,19 +79,9 @@ export default function UpdateImage() {
 
   return (
     <div>
-      {profile && (
-        <div className="w-100 flex justify-center">
-          <img
-            className="h-56 w-4/5	rounded-3xl object-cover shadow-[0px_0px_24px_0px_#fff5f5]"
-            src={getProfileImage(profile.avatar_url)}
-            alt="img profile"
-          />
-        </div>
-      )}
+      <div>{profile && <img src={getProfileImage(profile.avatar_url)} />}</div>
 
-      <div>
-        {preview && <img className="h-56 w-4/5 object-cover" src={preview} />}
-      </div>
+      <div>{preview && <img src={preview} />}</div>
 
       <form onSubmit={submit}>
         {uploading ? "Uploadind" : "Upload"}
@@ -102,7 +91,7 @@ export default function UpdateImage() {
           disabled={uploading}
           onChange={handleFile}
         />
-        <Button type="submit" label="Upload Image" />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

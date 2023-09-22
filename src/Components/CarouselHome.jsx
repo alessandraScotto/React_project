@@ -38,7 +38,7 @@ export default function CarouselHome({ data }) {
                 </h3>
                 <img
                   key={el.id}
-                  alt="..."
+                  alt="Image genre"
                   src={el.image_background}
                   className="min-h-cover w-full opacity-40 transition-opacity hover:opacity-80"
                 />
