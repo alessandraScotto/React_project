@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import useAuthStore from "../Store/authStore";
 import GameChat from "../Components/GameChat/GameChat";
 import { supabase } from "../Supabase/Client";
+import Ratings from "../Components/Ratings";
 
 export default function GameDetails() {
   const game = useLoaderData();
@@ -49,7 +50,6 @@ export default function GameDetails() {
           <p className="font-main  pb-4 text-3xl font-bold  md:text-5xl ">
             {game.name}
           </p>
-
           {profile && (
             <div className="my-12 flex justify-center rounded-md shadow-[0px_0px_32px_0px_#fff5f5]">
               <span className="font-main mr-2">
@@ -74,7 +74,8 @@ export default function GameDetails() {
               </svg>
             </div>
           )}
-
+          {/* Rating */}
+          <Ratings game={game} />
           <div dangerouslySetInnerHTML={{ __html: game.description }}></div>
         </div>
 

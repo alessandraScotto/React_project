@@ -6,14 +6,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Input from "../Components/Input";
 import { useState } from "react";
 import Button from "../Components/Button";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SignIn() {
   const setLoggedIn = useAuthStore((state) => state.setLoggedIn);
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const submit = async (values) => {
-    console.log(values);
-
     const form = {
       email: values.email,
       password: values.password,
@@ -32,10 +32,11 @@ export default function SignIn() {
       console.log("DATA", data, "EERORR", error);
       if (!error) {
         setMessage(() => data.user.email);
+        toast.done("Confirmation email sent!");
       }
 
       if (error) {
-        console.log(error.message.message);
+        toast.error(error.message);
       }
 
       if (data.session !== null) {

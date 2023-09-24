@@ -5,9 +5,19 @@ import useAuthStore from "../Store/authStore";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 import Button from "../Components/Button";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
 
 export default function Login() {
   const setLoggedIn = useAuthStore((state) => state.setLoggedIn);
+  const [error, setError] = useState(null);
+
+  const showErrorToast = (errorMessage) => {
+    toast.error(errorMessage, {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
 
   const navigate = useNavigate();
 
@@ -17,7 +27,6 @@ export default function Login() {
         email: values.email,
         password: values.password,
       });
-      console.log(data, error);
       if (error) throw error;
 
       if (data.session !== null) {
@@ -25,7 +34,8 @@ export default function Login() {
         navigate("/");
       }
     } catch (error) {
-      console.log(error);
+      setError(error.message); // Imposta l'errore nello stato
+      showErrorToast("Errore riprova"); // Visualizza il messaggio di errore
     }
   };
 
@@ -64,7 +74,11 @@ export default function Login() {
           </div>
 
           <div className="flex w-full justify-center">
-            <Button type="submit" label="Login now" />
+            <Button
+              onClick={error ? () => showErrorToast(error) : null}
+              type="submit"
+              label="Login now"
+            />
           </div>
         </Form>
       </Formik>
