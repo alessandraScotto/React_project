@@ -9,7 +9,9 @@
         "logout":"Logout",
         "aboutUs": "About us",
         "contactUs": "Contact us",
-        "games": "Games"
+        "games": "Games",
+        "searchpage": "Find your game"
+
     },
     "api": {
         "categories": "Categories",

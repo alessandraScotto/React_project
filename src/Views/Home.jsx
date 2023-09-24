@@ -3,6 +3,7 @@ import CarouselHome from "../Components/CarouselHome";
 import Counters from "../Components/Counters";
 import { useLoaderData } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 
 export default function Home() {
   const { games, genres, stores } = useLoaderData();
@@ -10,6 +11,9 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>Homepage: ReHack</title>
+      </Helmet>
       <div className="flex h-screen w-full items-center justify-center">
         <div className="mt-16 flex h-screen w-3/4 items-center justify-center border-l-2">
           <motion.h1

@@ -56,14 +56,14 @@ export default function Navigation() {
               alt="LogoDark"
             />
           </Link>
-          <div className="hidden text-black dark:text-white md:ml-3 md:inline">
+          <div className="font-main hidden text-black dark:text-white md:ml-3 md:inline">
             <MyDropdown />
           </div>
           <Link
             to="/search-page"
-            className="hidden text-black  dark:text-white md:inline"
+            className="font-main hidden pt-1 text-base font-medium text-black dark:text-white md:ml-3 md:inline"
           >
-            Search page
+            {t("common.searchpage")}
           </Link>
         </div>
 
@@ -131,7 +131,7 @@ export default function Navigation() {
             <MyDropdown />
           </div>
           <Link to="/search-page" className="font-main pb-10">
-            Search page
+            {t("common.searchgame")}
           </Link>
           <Link to="/" className="font-main pb-10">
             {t("common.aboutUs")}

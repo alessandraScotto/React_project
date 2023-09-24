@@ -8,7 +8,8 @@
         "register": "Registrati",
         "logout":"Logout",
         "aboutUs": "Chi siamo",
-        "contactUs": "Contattaci"
+        "contactUs": "Contattaci",
+        "searchpage": "Cerca il tuo gioco"
     },
     "api": {
     "categories": "Categorie",
