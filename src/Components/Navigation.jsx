@@ -131,7 +131,7 @@ export default function Navigation() {
             <MyDropdown />
           </div>
           <Link to="/search-page" className="font-main pb-10">
-            {t("common.searchgame")}
+            {t("common.searchpage")}
           </Link>
           <Link to="/" className="font-main pb-10">
             {t("common.aboutUs")}
